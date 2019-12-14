@@ -10,7 +10,6 @@ import { thunkSendMessage } from '../../thunks';
 import Header from '../../components/Header';
 
 import { Counter } from '../../store/Counter/types';
-import s from './styles.scss';
 
 interface WelcomeProps {
   INCRE: typeof INCRE;
@@ -38,7 +37,7 @@ const Welcome: FunctionComponent<WelcomeProps> = props => {
   return (
     <Fragment>
       <Header />
-      <section className={s.welcome}>
+      <section className={""}>
         <span>{count}</span>
         <ReactDataGrid
           columns={columns}

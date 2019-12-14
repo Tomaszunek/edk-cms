@@ -8,7 +8,8 @@
     "start": "cross-env serve -s ./dist/public",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.webpack --progress",
     "lint": "eslint src/**/*.{ts,tsx}",
-    "lint:fix": "eslint **/*/*.tsx  --fix"
+    "lint:fix": "eslint **/*/*.tsx  --fix",
+    "test": "jest"
   },
   "keywords": [
     "react",
@@ -20,9 +21,6 @@
   "author": "Vladyslav Tereshyn",
   "license": "ISC",
   "dependencies": {
-    "@types/react-data-grid": "^4.0.5",
-    "@types/redux-devtools-extension": "^2.13.2",
-    "@types/redux-thunk": "^2.1.0",
     "core-js": "^3.0.1",
     "dotenv": "^7.0.0",
     "react": "^16.8.6",
@@ -30,9 +28,49 @@
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.4",
     "react-redux": "^7.1.3",
-    "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!**/*.d.ts"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "ts-jest",
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.css$": "ts-jest",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "web.js",
+      "js",
+      "web.jsx",
+      "jsx",
+      "json",
+      "node",
+      "mjs"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "C:\\Users\\Tomasz\\Desktop\\edk\\react-typescript-eslint-starter\\tsconfig.json"
+      }
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -45,25 +83,37 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@hot-loader/react-dom": "^16.8.6",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.23",
     "@types/react": "^16.8.14",
     "@types/react-css-modules": "^4.6.2",
+    "@types/react-data-grid": "^4.0.5",
     "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^4.3.2",
+    "@types/react-test-renderer": "^16.9.1",
     "@types/react-text-mask": "^5.4.4",
+    "@types/redux-devtools-extension": "^2.13.2",
     "@types/redux-logger": "^3.0.7",
+    "@types/redux-thunk": "^2.1.0",
     "@types/webpack-env": "^1.13.9",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.5",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-emotion": "^10.0.9",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-react-css-modules": "^5.2.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "copy-webpack-plugin": "^5.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.2.0",
@@ -77,6 +127,7 @@
     "fork-ts-checker-webpack-plugin": "^1.2.0",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.11.0",
     "postcss-load-config": "^2.0.0",
@@ -84,8 +135,11 @@
     "postcss-plugin": "^1.0.0",
     "postcss-scss": "^2.0.0",
     "prettier": "^1.17.0",
+    "react-test-renderer": "16.8.6",
+    "redux-devtools-extension": "^2.13.8",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",

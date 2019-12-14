@@ -7,7 +7,9 @@
       {
         "modules": false,
         "targets": {
-          "browsers": ["last 2 versions"]
+          "browsers": [
+            "last 2 versions"
+          ]
         },
         "useBuiltIns": "entry",
         "corejs": "3.0.0"
