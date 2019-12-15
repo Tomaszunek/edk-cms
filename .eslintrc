@@ -44,7 +44,7 @@
     "no-underscore-dangle": 0,
     "comma-dangle": ["error", "never"],
     "no-use-before-define": "error",
-    "no-console": "error",
+    "no-console": "off",
     "no-plusplus": 0,
     "no-minusminus": 0,
     "no-unused-expressions": 0,
@@ -67,6 +67,12 @@
     ],
     "prettier/prettier": ["error"],
     "react/prop-types": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "@typescript-eslint/no-var-requires": "off"
+  },
+  "globals": {
+    "process": true,
+    "require": true,
+    "__dirname": true
   }
 }

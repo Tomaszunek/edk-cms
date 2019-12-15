@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=local webpack-dev-server --config webpack/common.webpack",
     "start": "cross-env serve -s ./dist/public",
+    "serv": "nodemon index.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.webpack --progress",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint **/*/*.tsx  --fix",
@@ -21,8 +22,12 @@
   "author": "Vladyslav Tereshyn",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.1",
     "core-js": "^3.0.1",
     "dotenv": "^7.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
     "react": "^16.8.6",
     "react-data-grid": "^6.1.0",
     "react-dom": "^16.8.6",
