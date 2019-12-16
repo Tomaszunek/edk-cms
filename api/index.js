@@ -1,6 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const { json, urlencoded } = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const { endpointNSroute, endpointTSroute } = require('./endpoint');
 const db = require('./models');
@@ -9,7 +10,22 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.use(
+  cors({
+    optionsSuccessStatus: 200
+  })
+);
+app.use(
+  urlencoded({
+    extended: true
+  })
+);
+app.use(json());
 
 app.use('/api-edk-ns', endpointNSroute);
 app.use('/api-edk-ts', endpointTSroute);

@@ -1,1 +1,1 @@
-export const HOSTNAME_API = 'localhost:5000';
+export const HOSTNAME_API = 'http://localhost:5000/api-edk-ns';

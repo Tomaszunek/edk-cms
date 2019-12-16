@@ -4,13 +4,16 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import logger from 'redux-logger';
 import { counterReducer } from './Counter/reducers';
+import { yearReducer } from './Year/reducers'
 import { Counter } from './Counter/types';
+import { IYear } from './Year/types';
 
 const rootReducer = combineReducers({
-  counter: counterReducer as any
+  counter: counterReducer as any,
+  years: yearReducer as any
 });
 
-export function configureStore(initialState?: IRootState): Store<IRootState> {
+export function configureStore(initialState?: IRootState): Store {
   const middlewares = [thunkMiddleware, logger];
   const middleWareEnhancer = applyMiddleware(...middlewares);
 
@@ -24,8 +27,10 @@ export function configureStore(initialState?: IRootState): Store<IRootState> {
 }
 
 export type CounterState = Counter;
+export type YearState = IYear;
 
 export interface IRootState {
   counter: CounterState;
+  years: YearState;
   router?: any;
 }

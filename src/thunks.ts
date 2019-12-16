@@ -1,23 +1,27 @@
 import { Action } from 'redux';
 import axios from 'axios';
 import { ThunkAction } from 'redux-thunk';
-import { INCRE } from './store/Counter/actions';
+import { fetchYearData } from './store/Year/actions';
 import { IRootState } from './store';
-import { Counter } from './store/Counter/types';
 import { HOSTNAME_API } from './constants/routing';
 
 // function exampleAPI() {
 //   return Promise.resolve(5);
 // }
 
-const getFromApi = () => {
-  const data = axios.get(`${HOSTNAME_API}/api`);
+// const getFromApi = () => {
+//   const data = axios.get(`${HOSTNAME_API}/api`);
+//   return data;
+// };
+
+const getYearsContemplations = async () => {
+  console.log("abc")
+  const response = await fetch(`${HOSTNAME_API}/yearLangEvent/getAll`);
+  const data = await response.json();
   return data;
 };
 
-export const thunkSendMessage = (
-  counter: Counter
-): ThunkAction<void, IRootState, null, Action> => async dispatch => {
-  const asyncResp = await getFromApi();
-  dispatch(INCRE({ count: asyncResp.data.item + counter.count }));
+export const thunkSendMessage = (): ThunkAction<void, IRootState, null, Action> => async dispatch => {
+  const asyncResp = await getYearsContemplations();
+  dispatch(fetchYearData({ data: asyncResp}));
 };

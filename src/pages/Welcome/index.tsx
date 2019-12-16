@@ -1,26 +1,24 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React, { FunctionComponent, Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ReactDataGrid from 'react-data-grid';
 
 import { IRootState } from '../../store';
-import { INCRE, DECRE } from '../../store/Counter/actions';
 
 import { thunkSendMessage } from '../../thunks';
 
 import Header from '../../components/Header';
-
-import { Counter } from '../../store/Counter/types';
+import GridLayout from '../../components/GridLayout';
 
 interface WelcomeProps {
-  INCRE: typeof INCRE;
-  DECRE: typeof DECRE;
-  counter: Counter;
   thunkSendMessage: any;
 }
 
 const Welcome: FunctionComponent<WelcomeProps> = props => {
-  const { counter } = props;
-  const { count } = counter;
+  const { thunkSendMessage } = props;
+
+  useEffect(() => {
+    thunkSendMessage();
+  });
 
   const columns = [
     { key: 'id', name: 'ID' },
@@ -38,23 +36,15 @@ const Welcome: FunctionComponent<WelcomeProps> = props => {
     <Fragment>
       <Header />
       <section className="">
-        <span>{count}</span>
-        <ReactDataGrid
-          columns={columns}
-          rowGetter={i => rows[i]}
-          rowsCount={3}
-          minHeight={150}
-        />
+        <GridLayout/>
       </section>
     </Fragment>
   );
 };
 
-const mapStateToProps = (state: IRootState) => ({
-  counter: state.counter
-});
+const mapStateToProps = (state: IRootState) => ({});
 
 export default connect(
   mapStateToProps,
-  { INCRE, DECRE, thunkSendMessage }
+  { thunkSendMessage }
 )(Welcome);
