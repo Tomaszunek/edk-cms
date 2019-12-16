@@ -37,7 +37,7 @@ const Welcome: FunctionComponent<WelcomeProps> = props => {
   return (
     <Fragment>
       <Header />
-      <section className={""}>
+      <section className="">
         <span>{count}</span>
         <ReactDataGrid
           columns={columns}

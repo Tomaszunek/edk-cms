@@ -1,4 +1,4 @@
-import { Counter, INC, DEC } from "./types";
+import { Counter, INC, DEC } from './types';
 
 export function INCRE(con: Counter) {
   return {

@@ -14,7 +14,8 @@
     "target": "es2017",
     "jsx": "react",
     "esModuleInterop": true,
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "resolveJsonModule": false
   },
   "include": ["src", "types/index.d.ts", "./typings.d.ts"],
   "exclude": ["node_modules", "dist", "compiled", "webpack"]
