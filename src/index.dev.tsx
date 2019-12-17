@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import React, { ComponentClass, FunctionComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Root from './Root';
+import './main.scss';
 
 const renderComponent = (Component: ComponentClass | FunctionComponent) => {
   ReactDOM.render(

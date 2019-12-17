@@ -1,25 +1,25 @@
-.header {
-  padding: 20px;
-  box-shadow: 0 1px 2px 0 rgba(212, 212, 212, 0.5);
+@import '../../theme/variables.scss';
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.Navigation {
+    background-color: $DARK_BACKGROUND;
+    height: $MAIN_NAV_HEIGHT;
+    border-bottom: $NAV_BORDER;
 
-  .title {
-    font-size: 1.6em;
-  }
+    nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
 
-  .githubLogo {
-    display: block;
-    width: 35px;
-    height: 35px;
+        a {
+            color: $NAV_TEXT;
+            text-decoration: none;
+            font-size: 24px;
 
-    img {
-      width: 100%;
-      max-width: 100%;
+            &::first-letter {
+                color: $EDK_RED;
+            }
+        }
     }
-  }
 }

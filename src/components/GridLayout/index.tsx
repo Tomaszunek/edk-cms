@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React, { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
 import ReactDataGrid from 'react-data-grid';
 import { IRootState } from '../../store';
@@ -19,12 +19,6 @@ const GridLayout: FunctionComponent<IGridLayout> = props => {
     { key: 'YearId', name: 'Year'},
     { key: 'language', name: 'language'},
     { key: 'actions', name: 'Actions'},
-  ];
-
-  const rows = [
-    { id: 0, title: 'row1', count: 20 },
-    { id: 1, title: 'row1', count: 40 },
-    { id: 2, title: 'row1', count: 60 }
   ];
 
   return (

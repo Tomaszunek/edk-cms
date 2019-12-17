@@ -1,19 +1,15 @@
 import React, { FunctionComponent, Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import ReactDataGrid from 'react-data-grid';
 
 import { IRootState } from '../../store';
-
 import { thunkSendMessage } from '../../thunks';
-
-import Header from '../../components/Header';
 import GridLayout from '../../components/GridLayout';
 
-interface WelcomeProps {
+interface MainPageProps {
   thunkSendMessage: any;
 }
 
-const Welcome: FunctionComponent<WelcomeProps> = props => {
+const MainPage: FunctionComponent<MainPageProps> = props => {
   const { thunkSendMessage } = props;
 
   useEffect(() => {
@@ -22,7 +18,6 @@ const Welcome: FunctionComponent<WelcomeProps> = props => {
 
   return (
     <Fragment>
-      <Header />
       <section className="">
         <GridLayout/>
       </section>
@@ -35,4 +30,4 @@ const mapStateToProps = (state: IRootState) => ({});
 export default connect(
   mapStateToProps,
   { thunkSendMessage }
-)(Welcome);
+)(MainPage);
