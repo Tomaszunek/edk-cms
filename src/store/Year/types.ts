@@ -9,9 +9,9 @@ export interface IYearState {
 // Describing the different ACTION NAMES available
 export const FETCH_YEAR_DATA = 'FETCH_YEAR_DATA';
 
-interface fetchYearDataAction {
+interface IFetchYearDataAction {
   type: typeof FETCH_YEAR_DATA;
   payload: IYear;
 }
 
-export type YearActionTypes = fetchYearDataAction;
+export type YearActionTypes = IFetchYearDataAction;

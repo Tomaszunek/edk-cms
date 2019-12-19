@@ -10,7 +10,12 @@ const getYearsContemplations = async () => {
   return data;
 };
 
-export const thunkSendMessage = (): ThunkAction<void, IRootState, null, Action> => async dispatch => {
+export const thunkSendMessage = (): ThunkAction<
+  void,
+  IRootState,
+  null,
+  Action
+> => async dispatch => {
   const asyncResp = await getYearsContemplations();
-  dispatch(fetchYearData({ data: asyncResp}));
+  dispatch(fetchYearData({ data: asyncResp }));
 };

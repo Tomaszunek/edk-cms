@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import logger from 'redux-logger';
 import { counterReducer } from './Counter/reducers';
-import { yearReducer } from './Year/reducers'
+import { yearReducer } from './Year/reducers';
 import { Counter } from './Counter/types';
 import { IYear } from './Year/types';
 

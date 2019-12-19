@@ -1,7 +1,7 @@
 import React, { FunctionComponent, Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
+import styles from './styles.scss';
 
-import { IRootState } from '../../store';
 import { thunkSendMessage } from '../../thunks';
 import GridLayout from '../../components/GridLayout';
 
@@ -10,22 +10,22 @@ interface MainPageProps {
 }
 
 const MainPage: FunctionComponent<MainPageProps> = props => {
-  const { thunkSendMessage } = props;
+  const { thunkSendMessage: thunkMessage } = props;
 
   useEffect(() => {
-    thunkSendMessage();
-  });  
+    thunkMessage();
+  });
 
   return (
     <Fragment>
-      <section className="">
-        <GridLayout/>
+      <section className={styles.MainPage}>
+        <GridLayout />
       </section>
     </Fragment>
   );
 };
 
-const mapStateToProps = (state: IRootState) => ({});
+const mapStateToProps = () => ({});
 
 export default connect(
   mapStateToProps,

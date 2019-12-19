@@ -3,22 +3,29 @@ import { connect } from 'react-redux';
 import ReactDataGrid from 'react-data-grid';
 import { IRootState } from '../../store';
 
-
 interface IGridLayout {
   years: any;
 }
 
 const GridLayout: FunctionComponent<IGridLayout> = props => {
-  let { data } = props.years;
+  const simplify = (data: any) => ({
+    ...data,
+    ...data.Language,
+    ...data.Contemplations[0],
+    actions: <div>abc</div>
+  });
+
+  const { years } = props;
+  let { data } = years;
   data = data.map(simplify);
   console.log(data);
   const columns = [
     { key: 'id', name: 'ID' },
     { key: 'title', name: 'Title' },
     { key: 'author', name: 'Author' },
-    { key: 'YearId', name: 'Year'},
-    { key: 'language', name: 'language'},
-    { key: 'actions', name: 'Actions'},
+    { key: 'YearId', name: 'Year' },
+    { key: 'language', name: 'language' },
+    { key: 'actions', name: 'Actions' }
   ];
 
   return (
@@ -36,13 +43,6 @@ const GridLayout: FunctionComponent<IGridLayout> = props => {
 const mapStateToProps = (state: IRootState) => ({
   years: state.years
 });
-
-const simplify = (data : any) => ({
-  ...data,
-  ...data.Language,
-  ...data.Contemplations[0],
-  actions: <div>abc</div>
-})
 
 export default connect(
   mapStateToProps,

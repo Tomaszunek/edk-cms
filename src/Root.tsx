@@ -15,11 +15,11 @@ const history = createBrowserHistory();
 const Root: FunctionComponent = () => (
   <Provider store={store}>
     <Router history={history}>
-      <Header/>
+      <Header />
       <div className={styles.MainContainer}>
-        <SideBar/>
+        <SideBar />
         <Switch>
-          <Route exact={true} path="/" component={MainPage} />
+          <Route exact path="/" component={MainPage} />
         </Switch>
       </div>
     </Router>
