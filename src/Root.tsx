@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import MainPage from './pages/MainPage';
 import Header from './components/Header';
 import { configureStore } from './store';
-import SideBar from './components/Header/SideBar';
+import SideBar from './components/SideBar';
 import styles from './main.scss';
 
 const store = configureStore();
